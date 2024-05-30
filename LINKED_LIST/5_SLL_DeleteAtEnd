@@ -1,7 +1,4 @@
 
-
-
-
 import java.util.Scanner;
 public class SLL_5{
     Node head=null;
