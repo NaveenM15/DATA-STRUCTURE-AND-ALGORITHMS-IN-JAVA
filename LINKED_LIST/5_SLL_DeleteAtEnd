@@ -1,0 +1,65 @@
+
+
+
+
+import java.util.Scanner;
+public class SLL_5{
+    Node head=null;
+    Node temp=null;
+    class Node{
+        int data;
+        Node next;
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+    public void create(int n){
+        Node nn=new Node(n);
+        if(head==null){
+            head=nn;
+            temp=nn;
+        }
+        else{
+            temp.next=nn;
+            temp=nn;
+        }
+    }
+    public void deleteEnd(){
+        Node t=head;
+        while(t.next.next!=null){
+            t=t.next;
+
+        }
+        t.next=null;
+    }
+    int count=0;
+    void display(){
+        Node t=head;
+        while(t!=null){
+            System.out.print(t.data+" ");
+            t=t.next;
+            count++;
+        }
+        System.out.println("\nNUMBER OF ELEMENTS : "+count);
+    }
+    public static void main(String[] args) {
+        SLL_5 o=new SLL_5();
+        Scanner in=new Scanner(System.in);
+        while(true){
+            int n=in.nextInt();
+            if(n<0) {
+                break;
+            }
+            else{
+                o.create(n);
+            }
+        }
+        System.out.println("LINKED LIST : " );
+        o.display();
+
+        o.deleteEnd();
+        System.out.println("LINKED LIST AFTER DELETING ELEMENT AT END : ");
+        o.display();
+    }
+}
