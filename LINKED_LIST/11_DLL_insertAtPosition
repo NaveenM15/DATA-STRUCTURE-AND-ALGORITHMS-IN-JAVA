@@ -1,0 +1,80 @@
+import java.sql.SQLOutput;
+import java.util.Scanner;
+
+class DoublyLinkedList_4{
+    Node head=null;
+    Node temp=null;
+    class Node {
+        int data;
+        Node next;
+        Node prev;
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+            this.prev=null;
+        }
+    }
+    public void create(int n){
+        Node nn=new Node(n);
+        if(head==null){
+            head=temp=nn;
+        }
+        else{
+            temp.next=nn;
+            nn.prev=temp;
+            temp=nn;
+        }
+    }
+    public void insertAtPosition(int ele,int pos){
+
+        if(pos>count){
+            System.out.println("IndexOutOfBounds");
+        }
+        else{
+            Node nn=new Node(ele);
+            Node t=head;
+            int i=1;
+            while(i<pos){
+                t=t.next;
+                i++;
+            }
+            nn.prev=t;
+            nn.next=t.next;
+            t.next=nn;
+            t.next.prev=nn;
+        }
+
+    }
+    int count=0;
+    public void display(){
+        Node t=head;
+        while(t!=null){
+            System.out.print(t.data+" ");
+            t=t.next;
+            count++;
+        }
+    }
+}
+public class DLL_4{
+    public static void main(String[] args) {
+        DoublyLinkedList_4 o=new DoublyLinkedList_4();
+        Scanner in=new Scanner(System.in);
+        while(true){
+            int n=in.nextInt();
+            if(n<0){
+                break;
+            }
+            else{
+                o.create(n);
+            }
+        }
+        System.out.println("List of Elements : ");
+        o.display();
+        System.out.println("Enter the Position and Elements to Insert: ");
+        int pos=in.nextInt();
+        int ele=in.nextInt();
+        o.insertAtPosition(ele,pos);
+        System.out.println("List Of Elements After Inserting at End");
+        o.display();
+    }
+}
