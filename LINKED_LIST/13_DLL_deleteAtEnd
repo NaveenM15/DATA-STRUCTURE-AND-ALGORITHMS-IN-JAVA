@@ -1,0 +1,68 @@
+
+import java.util.Scanner;
+
+class DoublyLinkedList_6{
+    Node head=null;
+    Node temp=null;
+    class Node {
+        int data;
+        Node next;
+        Node prev;
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+            this.prev=null;
+        }
+    }
+    public void create(int n){
+        Node nn=new Node(n);
+        if(head==null){
+            head=temp=nn;
+        }
+        else{
+            temp.next=nn;
+            nn.prev=temp;
+            temp=nn;
+        }
+    }
+    public void deleteEnd(){
+//        temp.prev.next=null;
+        Node t=head;
+        while(t.next.next!=null){
+            t=t.next;
+        }
+        t.next=null;
+
+    }
+
+    int count=0;
+    public void display(){
+        Node t=head;
+        while(t!=null){
+            System.out.print(t.data+" ");
+            t=t.next;
+            count++;
+        }
+    }
+}
+public class DLL_6{
+    public static void main(String[] args) {
+        DoublyLinkedList_6 o=new DoublyLinkedList_6();
+        Scanner in=new Scanner(System.in);
+        while(true){
+            int n=in.nextInt();
+            if(n<0){
+                break;
+            }
+            else{
+                o.create(n);
+            }
+        }
+        System.out.println("List of Elements : ");
+        o.display();
+        o.deleteEnd();
+        System.out.println();
+        System.out.println("List Of Elements After Deleting At End : ");
+        o.display();
+    }
+}
