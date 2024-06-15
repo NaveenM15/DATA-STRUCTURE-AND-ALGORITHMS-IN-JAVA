@@ -1,1 +1,76 @@
 
+Linear Searching
+
+1.Linear Search:
+Description: Iterates through each element in a list until the desired element is found or the list ends.
+Time Complexity: O(n)
+Use Cases: Small or unsorted datasets.
+
+Non-Linear Searching
+
+1. Binary Search:
+Description: Divides a sorted list in half to determine which half the desired element might be in, then repeats the process on that half.
+Time Complexity: O(log n)
+Use Cases: Large, sorted datasets.
+
+2.Jump Search:
+
+Description: Divides the list into blocks and performs a linear search within the block.
+Time Complexity: O(√n)
+Use Cases: Sorted datasets where binary search may not be as efficient.
+
+3.Interpolation Search:
+
+Description: Estimates the position of the desired element based on the value of the elements.
+Time Complexity: O(log log n) in the best case, O(n) in the worst case.
+Use Cases: Uniformly distributed sorted datasets.
+
+4.Exponential Search:
+
+Description: Finds the range where the element might exist using repeated doubling and then performs binary search within that range.
+Time Complexity: O(log n)
+Use Cases: Unbounded or infinite lists.
+Advanced Searching Techniques
+
+5.Fibonacci Search:
+
+Description: Uses Fibonacci numbers to divide the array and reduce the search range.
+Time Complexity: O(log n)
+Use Cases: Sorted datasets, similar to binary search but can be more efficient for certain types of data.
+
+6.Hash Table Search:
+
+Description: Uses a hash function to compute an index into an array of buckets, from which the desired value can be found.
+Time Complexity: O(1) for average case.
+Use Cases: Associative arrays, fast lookups.
+
+7.Binary Search Tree (BST) Search:
+
+Description: Searches within a binary tree where each node has at most two children, left (less than the node) and right (greater than the node).
+Time Complexity: O(log n) for balanced trees.
+Use Cases: Dynamic datasets where insertions and deletions are frequent.
+
+8.Breadth-First Search (BFS):
+
+Description: Explores all neighbors at the present depth prior to moving on to nodes at the next depth level.
+Time Complexity: O(V + E), where V is the number of vertices and E is the number of edges.
+Use Cases: Graph traversal, shortest path in unweighted graphs.
+
+9.Depth-First Search (DFS):
+
+Description: Explores as far as possible along each branch before backtracking.
+Time Complexity: O(V + E)
+Use Cases: Pathfinding, cycle detection in graphs.
+Specialized Searching Techniques
+
+10.Ternary Search:
+
+Description: Similar to binary search but splits the list into three parts.
+Time Complexity: O(log3 n)
+Use Cases: Ternary search trees, optimization problems.
+
+11.A Search*:
+
+Description: Uses heuristics to improve the efficiency of the search.
+Time Complexity: O(E), where E is the number of edges.
+Use Cases: Pathfinding, especially in weighted graphs.
