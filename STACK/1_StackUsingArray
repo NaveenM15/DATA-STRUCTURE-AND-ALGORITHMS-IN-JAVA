@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class Stack_1 {
+    Scanner in=new Scanner(System.in);
+    int n=in.nextInt();
+    int stack[]=new int[n];
+    int top=-1;
+     void push(int ele){
+        if(top==n-1){
+            System.out.println("STACK OVERFLOW.");
+        }
+        else{
+            top++;
+            stack[top]=ele;
+        }
+    }
+    void pop(){
+         if(top==-1){
+             System.out.println("STACK UNDERFLOW");
+         }
+         else{
+             System.out.println("POPED ELEMENT :"+stack[top]);
+             top--;
+         }
+    }
+    void peek(){
+        System.out.println("PEEK ELEMENT : "+stack[top]);
+    }
+    void display(){
+         if(top==-1){
+             System.out.println("Stack is Empty");
+         }
+         else{
+             System.out.println("STACK ELEMENTS: ");
+             for(int i=top;i>=0;i--){
+                 System.out.print(stack[i]+" ");
+             }
+         }
+    }
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        Stack_1 obj=new Stack_1();
+
+        while(true){
+            String s=in.next();
+            if(s.equals("push")){
+                int ele=in.nextInt();
+                obj.push(ele);
+            }
+            else if(s.equals("pop")){
+                obj.pop();
+            }
+            else if(s.equals("peek")){
+                obj.peek();
+            }
+            else if(s.equals("print")){
+               obj.display();
+            }
+            else{
+                break;
+            }
+        }
+    }
+}
