@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class Stack_2 {
+    Node top=null;
+     class Node{
+         int data;
+         Node next;
+         Node(int ele){
+             this.data=ele;
+             this.next=null;
+         }
+     }
+    void push(int ele){
+        Node nn=new Node(ele);
+        if(top==null){
+            top=nn;
+        }
+        else{
+            nn.next=top;
+            top=nn;
+        }
+    }
+    void pop(){
+        System.out.println("POPED ELEMENT :"+top.data);
+         top=top.next;
+    }
+    void peek(){
+        System.out.println("PEEK ELEMENT :"+top.data);
+    }
+    void display(){
+         Node t=top;
+         while(t!=null){
+             System.out.print(t.data+" ");
+             t=t.next;
+         }
+    }
+
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        Stack_2 obj=new Stack_2();
+        while(true){
+            System.out.println("Enter the Operation : ");
+            String s=in.next();
+            if(s.equals("push")){
+                int ele=in.nextInt();
+                obj.push(ele);
+            }
+            else if(s.equals("pop")){
+                obj.pop();
+            }
+            else if(s.equals("display")){
+                obj.display();
+                break;
+            }
+            else{
+                break;
+            }
+        }
+    }
+}
