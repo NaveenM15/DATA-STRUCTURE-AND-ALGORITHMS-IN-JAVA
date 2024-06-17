@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class CSLL_InsertAtBeginning_1 {
+    Node head=null;
+    Node temp=null;
+    class Node{
+        int data;
+        Node next;
+        Node(int data){
+            this.data=data;
+            this.next=null;
+        }
+    }
+    void create(int n){
+        Node nn=new Node(n);
+        if(head==null){
+            head=temp=nn;
+        }
+        else{
+            temp.next=nn;
+            temp=nn;
+        }
+        temp.next=head;
+    }
+    void display(){
+        Node t=head;
+        while(t.next!=head){
+            System.out.print(t.data+" ");
+            t=t.next;
+        }
+        System.out.println(t.data);
+    }
+    void insertAtBeginning(int n){
+        Node nn=new Node(n);
+        nn.next=head;
+        temp.next=nn;
+        head=nn;
+    }
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        CSLL_InsertAtBeginning_1 o=new CSLL_InsertAtBeginning_1();
+        while(true){
+            int n=in.nextInt();
+            if(n<0)
+                break;
+            else
+                o.create(n);
+        }
+        System.out.println("Elements in Circular LinkedList : ");
+        o.display();
+        System.out.println("Elements in Circular LinkedList After InsertAtBeginning: ");
+        o.insertAtBeginning(10);
+        o.display();
+
+
+
+    }
+}
