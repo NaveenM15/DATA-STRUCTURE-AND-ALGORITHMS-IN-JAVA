@@ -1,0 +1,61 @@
+
+import java.util.Scanner;
+
+public class CSLL_DeleteAtGivenPosition {
+    Node head=null;
+    Node temp=null;
+    class Node{
+        int data;
+        Node next;
+        Node(int data){
+            this.data=data;
+            this.next=null;
+        }
+    }
+    void create(int n){
+        Node nn=new Node(n);
+        if(head==null){
+            head=temp=nn;
+        }
+        else{
+            temp.next=nn;
+            temp=nn;
+        }
+        temp.next=head;
+    }
+    void display(){
+        Node t=temp.next;
+        while(t.next!=head){
+            System.out.print(t.data+" ");
+            t=t.next;
+        }
+        System.out.println(t.data);
+    }
+    void deleteAtGivenPosition(int pos){
+         Node t=temp.next;
+         int i=1;
+         while(i++<pos){
+             t=t.next;
+         }
+         t.next=t.next.next;
+         t=t.next.next;
+    }
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        CSLL_DeleteAtGivenPosition o=new CSLL_DeleteAtGivenPosition();
+        while(true){
+            int n=in.nextInt();
+            if(n<0)
+                break;
+            else
+                o.create(n);
+        }
+        System.out.println("Elements in Circular LinkedList : ");
+        o.display();
+        System.out.println("Enter the Position to Delete a Element :");
+        int pos=in.nextInt();
+        System.out.println("Elements in Circular LinkedList After DeletingAtEnd: ");
+        o.deleteAtGivenPosition(pos);
+        o.display();
+    }
+}
