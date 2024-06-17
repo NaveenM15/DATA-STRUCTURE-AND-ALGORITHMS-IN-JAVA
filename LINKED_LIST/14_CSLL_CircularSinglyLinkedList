@@ -1,0 +1,53 @@
+
+import java.util.Scanner;
+public class CLL_CircularSinglyLinkedList_1 {
+    Node head=null;
+    Node temp=null;
+    class Node{
+        int data;
+        Node next;
+        Node(int data){
+            this.data=data;
+            this.next=null;
+        }
+    }
+    void insert(int n){
+        Node a=new Node(n);
+        if(head==null){
+            head=a;
+            temp=a;
+        }
+        else {
+            temp.next=a;
+            temp=a;
+        }
+        temp.next=head;
+    }
+    void display(){
+        temp=head;
+        while(temp.next!=head){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
+        System.out.print(temp.data);
+
+
+    }
+
+    public static void main(String[] args){
+        Scanner in=new Scanner(System.in);
+        CLL_CircularSinglyLinkedList_1 o=new CLL_CircularSinglyLinkedList_1();
+        while(true){
+            int n=in.nextInt();
+            if(n<0)
+                break;
+            else
+                o.insert(n);
+        }
+        o.display();
+
+    }
+}
+
+
+ 
