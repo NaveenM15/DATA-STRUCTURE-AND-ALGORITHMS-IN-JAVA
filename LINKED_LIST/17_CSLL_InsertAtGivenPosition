@@ -1,0 +1,65 @@
+
+import java.util.Scanner;
+
+public class CSLL_InsertAtGivenPosition {
+    Node head=null;
+    Node temp=null;
+    class Node{
+        int data;
+        Node next;
+        Node(int data){
+            this.data=data;
+            this.next=null;
+        }
+    }
+    void create(int n){
+        Node nn=new Node(n);
+        if(head==null){
+            head=temp=nn;
+        }
+        else{
+            temp.next=nn;
+            temp=nn;
+        }
+        temp.next=head;
+    }
+    void display(){
+        Node t=head;
+        while(t.next!=head){
+            System.out.print(t.data+" ");
+            t=t.next;
+        }
+        System.out.println(t.data);
+    }
+    void insertAtGivenPosition(int ele,int pos){
+        Node nn=new Node(ele);
+        Node t=head;
+        int i=1;
+        while(i++<pos){
+            t=t.next;
+        }
+        nn.next=t.next;
+        t.next=nn;
+        t=nn;
+
+    }
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        CSLL_InsertAtGivenPosition o=new CSLL_InsertAtGivenPosition();
+        while(true){
+            int n=in.nextInt();
+            if(n<0)
+                break;
+            else
+                o.create(n);
+        }
+        System.out.println("Elements in Circular LinkedList : ");
+        o.display();
+        System.out.println("Enter the Element and Position to Insert: ");
+        int ele=in.nextInt();
+        int pos=in.nextInt();
+        System.out.println("Elements in Circular LinkedList After InsertAtGivenPosition: ");
+        o.insertAtGivenPosition(ele,pos);
+        o.display();
+    }
+}
